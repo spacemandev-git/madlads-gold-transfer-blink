@@ -327,38 +327,3 @@ export async function isStaked(fromMintAddress: string): Promise<boolean> {
         return true;
     }
 }
-
-/*
-//console.log((await readGold("GsvY6rPFaipQ1qsACYFtQu7F9n3JxzBXFw8DDFnMkRpb", "J4fPmhJunArWJq47c7C2TZZdrSbjEbTCUot1ZAhM5MA6")).toString())
-//console.log((await readUnclaimedGold("J4fPmhJunArWJq47c7C2TZZdrSbjEbTCUot1ZAhM5MA6")))
-
-const [stakeEntry] = web3.PublicKey.findProgramAddressSync(
-    [
-        Buffer.from("stake-entry"),
-        STAKE_POOL.toBuffer(),
-        new web3.PublicKey(fromMintAddress).toBuffer(),
-        web3.PublicKey.default.toBuffer(),
-    ],
-    cardinalStakeProgram.programId
-);
-
-const stakeEntryAcc = await cardinalStakeProgram.account.stakeEntry.fetch(stakeEntry);
-console.log(JSON.stringify(stakeEntryAcc, null, 2));
-
-console.log((await readGold(account, fromMintAddress)).toString())
-console.log((await readUnclaimedGold(fromMintAddress)).toString())
-
-const goldToClaim = await readUnclaimedGold(fromMintAddress);
-const ix = await claimGold(account, fromMintAddress);
-
-const goldToTransfer = await readGold(account, fromMintAddress);
-const transferIx = await transferGold(account, fromMintAddress, toMintAddress, goldToTransfer);
-
-const msg = new web3.TransactionMessage({
-    payerKey: new web3.PublicKey(account),
-    recentBlockhash: (await connection.getLatestBlockhash()).blockhash,
-    instructions: [ix]
-}).compileToV0Message();
-const txn = new web3.VersionedTransaction(msg);
-console.log(await connection.simulateTransaction(txn));
-*/
