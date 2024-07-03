@@ -31,7 +31,7 @@ app.get("/blink", async (c) => {
         icon: `${url}/public/gold.png`,
         title: "Mad Lads Gold Transfer",
         description: `
-Transfer gold between two madlads (must be unlocked).
+Transfer gold between two madlads.
 Simply put the TOKEN_ADDRESS_FROM,TOKEN_ADDRESS_TO with the ',' between them and we'll take care of the rest.
 BE CAREFUL, WHILE I DO NOT INTEND TO STEAL YOUR LADS, SOMEONE ELSE COULD POST THIS AND SCAM YOU.`,
         label: "Transfer",
