@@ -4,6 +4,8 @@ THIS SOFTWARE IS PROVIDED AS-IS! IF YOU DON'T KNOW WHAT YOU'RE DOING, *PLEASE* D
 
 ## Running the Blink
 Change `url` in index.ts to `http://localhost:3000"  
+
+
 `tsx index.ts` will start the blink server on http://localhost:3000
 
 ## Using the Blink
