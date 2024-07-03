@@ -14,6 +14,7 @@ const helius = new Helius(process.env.HELIUS_API_KEY as string);
 
 const app = new Hono();
 const url = "https://goldlads.blinkgames.dev"
+app.use('/actions.json', serveStatic({ path: "./actions.json" }));
 app.use('/public/*', serveStatic({ root: "./" }));
 app.use('*', cors({
     origin: ['*'], //TODO: Restrict to x.com or twitter.com
