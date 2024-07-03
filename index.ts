@@ -13,7 +13,7 @@ const connection = new web3.Connection(`https://mainnet.helius-rpc.com/?api-key=
 const helius = new Helius(process.env.HELIUS_API_KEY as string);
 
 const app = new Hono();
-const url = "http://localhost:3000"
+const url = "https://goldlads.blinkgames.dev"
 app.use('/public/*', serveStatic({ root: "./" }));
 app.use('*', cors({
     origin: ['*'], //TODO: Restrict to x.com or twitter.com
@@ -24,7 +24,9 @@ app.use('*', cors({
     maxAge: 86400,
 }));
 
-app.get("/", async (c) => {
+app.get("/", async (c) => c.redirect("https://spacemandev.notion.site/Mad-Lads-Gold-Transfer-Blink-85d9c545b10c41ad955d90a2287ff96e?pvs=4"));
+
+app.get("/blink", async (c) => {
     const response: ActionGetResponse = {
         icon: `${url}/public/gold.png`,
         title: "Mad Lads Gold Transfer",
