@@ -14,8 +14,7 @@ const helius = new Helius(process.env.HELIUS_API_KEY as string);
 
 const app = new Hono();
 const url = "https://goldlads.blinkgames.dev"
-app.use('/actions.json', serveStatic({ path: "./actions.json" }));
-app.use('/public/*', serveStatic({ root: "./" }));
+
 app.use('*', cors({
     origin: ['*'], //TODO: Restrict to x.com or twitter.com
     allowMethods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
@@ -24,6 +23,8 @@ app.use('*', cors({
     credentials: true,
     maxAge: 86400,
 }));
+app.use('/actions.json', serveStatic({ path: "./actions.json" }));
+app.use('/public/*', serveStatic({ root: "./" }));
 
 app.get("/", async (c) => c.redirect("https://spacemandev.notion.site/Mad-Lads-Gold-Transfer-Blink-85d9c545b10c41ad955d90a2287ff96e?pvs=4"));
 
